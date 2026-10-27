@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self' blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LK-61 Laptop Keyboard</title>
+    <link rel="icon" href="src/assets/icons/app-icon.svg" />
+    <link rel="stylesheet" href="src/styles/main.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <img class="brand-icon" src="src/assets/icons/app-icon.svg" alt="" />
+          <div>
+            <div class="brand-name">LK-61</div>
+            <div class="brand-sub">LAPTOP KEYBOARD WORKSTATION</div>
+          </div>
+        </div>
+        <div class="grille" aria-hidden="true"></div>
+        <div class="topbar-right">
+          <div id="audio-status" class="status-pill" data-state="idle" role="status">
+            <span class="led"></span><span class="status-text">Audio starting…</span>
+          </div>
+          <button id="btn-audio-start" class="btn btn-small btn-primary" type="button" hidden>ENABLE AUDIO</button>
+          <button id="btn-help" class="btn btn-small" type="button" title="Keyboard shortcuts (F1)">HELP</button>
+          <button id="btn-settings" class="btn btn-small" type="button" title="Settings">SETTINGS</button>
+        </div>
+      </header>
+
+      <main class="deck">
+        <section class="deck-row deck-top">
+          <div id="master-panel" class="panel panel-master"></div>
+          <div id="lcd" class="lcd-wrap"></div>
+          <div id="instrument-panel" class="panel panel-instruments"></div>
+        </section>
+
+        <section class="deck-row deck-mid">
+          <div id="rhythm-panel" class="panel"></div>
+          <div id="accomp-panel" class="panel"></div>
+          <div id="effects-panel" class="panel panel-effects"></div>
+          <div id="recording-panel" class="panel"></div>
+        </section>
+
+        <section class="keybed">
+          <div class="bend" title="Pitch bend (↑ / ↓)">
+            <span class="bend-label">BEND</span>
+            <div class="bend-track"><div id="bend-marker" class="bend-marker"></div></div>
+          </div>
+          <div id="keyboard" class="keyboard" role="group" aria-label="Piano keyboard"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Play <kbd>A</kbd>–<kbd>'</kbd> · Octave <kbd>Z</kbd>/<kbd>X</kbd> · Sustain <kbd>Space</kbd> · Rhythm <kbd>Enter</kbd> · Help <kbd>F1</kbd> · Panic <kbd>Esc</kbd></span>
+        <span id="footer-info"></span>
+      </footer>
+    </div>
+
+    <div id="modal-root"></div>
+    <div id="toast-root" class="toasts" aria-live="polite"></div>
+    <script type="module" src="src/ui/app.js"></script>
+  </body>
+</html>
